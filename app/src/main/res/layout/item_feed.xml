@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rlPointPackage"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/d_80"
+    android:layout_marginStart="@dimen/d_16"
+    android:layout_marginTop="@dimen/d_4"
+    android:layout_marginEnd="@dimen/d_16"
+    android:layout_marginBottom="@dimen/d_10"
+    android:background="@drawable/bg_orange_radius"
+    android:elevation="@dimen/d_2">
+
+    <TextView
+        android:id="@+id/tvText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/app_name"/>
+
+</RelativeLayout>
