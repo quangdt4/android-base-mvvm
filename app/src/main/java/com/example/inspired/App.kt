@@ -3,6 +3,7 @@ package com.example.inspired
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
 
+//Android-base-mvvm
 @HiltAndroidApp
 class App : Application() {
     override fun onCreate() {
