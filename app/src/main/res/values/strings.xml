@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">inspired</string>
+    <string name="app_name">1base</string>
     <string name="unavailable_internet">Mạng dữ liệu không khả dụng, thử lại sau!</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
