@@ -1,0 +1,26 @@
+ext {
+    // App dependencies
+    kotlin_version = "1.5.21"
+    hiltVersion = "2.40"
+    pagingVersion = "3.0.1"
+    coroutinesVersion = "1.4.2"
+
+    // Android support libraries
+    appcompatXVersion = "1.4.0"
+    vectordrawableVersion = "1.1.0"
+    coreKtxVersion = "1.7.0"
+
+    // Database - Room
+    roomVersion = "2.3.0"
+
+    // View
+    constraintLayoutVersion = "2.1.2"
+    recycleviewVersion = "1.2.1"
+
+    // Network
+    retrofitVersion = "2.9.0"
+    okHttpVersion = "4.9.1"
+
+    // Glide
+    glideVersion = "4.12.0"
+}
