@@ -5,4 +5,6 @@
     <string name="cancel">Cancel</string>
     <string name="confirm_exit">Please click BACK again to exit</string>
     <string name="feed_is_empty">Feed is empty</string>
+
+    <string name="display_name">eSign</string>
 </resources>
