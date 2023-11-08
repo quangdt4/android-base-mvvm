@@ -1,12 +1,13 @@
 package com.example.one.ui.home
 
+import android.content.Intent
 import android.view.View
 import androidx.fragment.app.viewModels
 import com.example.one.R
 import com.example.one.data.network.response.PhotoRes
 import com.example.one.databinding.FragmentHomeBinding
 import com.example.one.ui.base.BaseFragment
-import com.example.one.ui.dialog.ConfirmDialog
+import com.example.one.ui.esign.ESignActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -16,7 +17,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     private val homeAdapter by lazy { HomeAdapter() }
 
-    val list: ArrayList<PhotoRes> = ArrayList()
+    private val list: ArrayList<PhotoRes> = ArrayList()
 
     override val layoutId: Int
         get() = R.layout.fragment_home
@@ -28,47 +29,59 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     override fun setUp() {
         initView()
         initData()
-        binding?.srlHomeList?.setOnRefreshListener {
-            onRefresh()
-        }
     }
 
     private fun initView() {
         binding?.rcvHomeList?.adapter = homeAdapter
 
-        binding?.includeActionBar?.tvAppTitle?.setOnClickListener {
-            showAlert()
+        binding?.srlHome?.setOnRefreshListener {
+            onRefresh()
         }
+
+        val menu = binding?.fabMenu
+        val disableLayout = binding?.layoutDisable
+        menu?.setOnMenuButtonClickListener {
+            if (menu.isOpened) {
+                menu.close(true)
+                disableLayout?.visibility = View.GONE
+            } else {
+                menu.open(true)
+                disableLayout?.visibility = View.VISIBLE
+            }
+        }
+
+        disableLayout?.setOnClickListener {
+            if (menu?.isOpened == true) {
+                menu.close(true)
+                disableLayout.visibility = View.GONE
+            }
+        }
+
+        binding?.fabDocs?.setOnClickListener {
+            openDocuments()
+        }
+
+        binding?.fabESign?.setOnClickListener {
+            val intent = Intent(requireContext(), ESignActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    private fun openDocuments() {
+        TODO("Not yet implemented")
     }
 
     private fun initData() {
 
-        for (i in 1..10) list.add(PhotoRes(i.toString()))
-        homeAdapter.setData(list)
+//        for (i in 1..10) list.add(PhotoRes(i.toString()))
+//        homeAdapter.setData(list)
     }
 
-    private fun showAlert() {
-        ConfirmDialog.Builder(mContext)
-            .setDialogMsg(getString(R.string.confirm_exit))
-            .setNumberOfButton(2)
-            .setPositiveButton(
-                R.string.ok,
-                onClickPositive = {
-                }
-            )
-            .setNegativeButton(R.string.cancel)
-            .setOnTouchOutSide(false)
-            .setFontTitleDialog(R.font.manrope_bold)
-            .setFontContentDialog(R.font.manrope_regular)
-            .create()
-            .show()
-    }
-
-    fun onRefresh() {
-        homeAdapter.clearData()
-        list.clear()
-        binding?.srlHomeList?.isRefreshing = false
-        for (i in 1..15) list.add(PhotoRes(i.toString()))
-        homeAdapter.setData(list)
+    private fun onRefresh() {
+//        homeAdapter.clearData()
+//        list.clear()
+//        binding?.srlHome?.isRefreshing = false
+//        for (i in 1..15) list.add(PhotoRes(i.toString()))
+//        homeAdapter.setData(list)
     }
 }

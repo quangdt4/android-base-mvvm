@@ -30,6 +30,23 @@ class CommonUtils private constructor() {
         return phone.matches("^(09|03|07|08|05)\\d{8}$".toRegex())
     }
 
+//    fun showAlert() {
+//        ConfirmDialog.Builder(context)
+//            .setDialogMsg(dialogMsg)
+//            .setNumberOfButton(2)
+//            .setPositiveButton(
+//                R.string.ok,
+//                onClickPositive = {
+//                }
+//            )
+//            .setNegativeButton(R.string.cancel)
+//            .setOnTouchOutSide(false)
+//            .setFontTitleDialog(R.font.manrope_bold)
+//            .setFontContentDialog(R.font.manrope_regular)
+//            .create()
+//            .show()
+//    }
+
     companion object {
         private var INSTANCE: CommonUtils? = null
         fun getInstance(): CommonUtils {

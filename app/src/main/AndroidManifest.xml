@@ -13,6 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
             android:name="com.example.one.ui.splash.SplashActivity"
             android:exported="true"
@@ -23,10 +24,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".ui.main.MainActivity"
             android:exported="true" />
 
+        <activity
+            android:name=".ui.esign.ESignActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

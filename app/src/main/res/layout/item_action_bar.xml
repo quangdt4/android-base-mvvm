@@ -6,17 +6,14 @@
     android:layout_height="?attr/actionBarSize"
     android:background="@color/white">
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvAppTitle"
+        style="@style/Text20Bold"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@null"
-        android:contentDescription="@null"
-        android:fontFamily="@font/manrope_bold"
         android:gravity="center"
         android:text="@string/display_name"
-        android:textColor="@color/raisin_black"
-        android:textSize="@dimen/s_20"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

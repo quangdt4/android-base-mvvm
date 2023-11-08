@@ -9,7 +9,7 @@
         android:id="@+id/navHostContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/bottomNav" />
+        android:layout_above="@+id/bottomNav"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"
@@ -19,11 +19,9 @@
         android:animateLayoutChanges="false"
         android:background="@drawable/bg_nav_bar"
         android:elevation="@dimen/d_4"
+        android:visibility="gone"
         app:itemIconSize="@dimen/d_16"
         app:itemIconTint="@drawable/icon_bottom_navigation"
         app:labelVisibilityMode="unlabeled"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         app:menu="@menu/menu_bottom_nav" />
 </RelativeLayout>

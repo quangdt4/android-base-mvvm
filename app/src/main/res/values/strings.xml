@@ -7,4 +7,10 @@
     <string name="feed_is_empty">Feed is empty</string>
 
     <string name="display_name">eSign</string>
+    <string name="new_e_sign">Create eSign</string>
+    <string name="new_docs">Import new document</string>
+    <string name="feed">Feed</string>
+    <string name="search">Search</string>
+    <string name="live">Live</string>
+    <string name="profile">Profile</string>
 </resources>

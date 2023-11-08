@@ -1,21 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    android:orientation="vertical">
+    android:background="@color/background">
 
     <include
-        android:id="@+id/includeActionBar"
-        layout="@layout/item_action_bar" />
+        android:id="@+id/actionBar"
+        layout="@layout/item_action_bar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <RelativeLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/actionBar">
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:id="@+id/srlHomeList"
+            android:id="@+id/srlHome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -24,39 +30,55 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
-                app:spanCount="@integer/grid_columns" />
+                app:spanCount="1" />
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:id="@+id/srlEmpty"
+        <View
+            android:id="@+id/layoutDisable"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="gone">
+            android:animateLayoutChanges="true"
+            android:background="@color/white_disable"
+            android:visibility="gone" />
 
-            <LinearLayout
-                android:id="@+id/llEmpty"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical">
+        <com.github.clans.fab.FloatingActionMenu
+            android:id="@+id/fabMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/d_16"
+            app:menu_animationDelayPerItem="50"
+            app:menu_buttonSpacing="@dimen/d_2"
+            app:menu_colorNormal="@color/OrangeSoda"
+            app:menu_colorPressed="@color/OrangeSoda"
+            app:menu_colorRipple="@color/orangeSoda_ripple"
+            app:menu_labels_colorRipple="@color/white"
+            app:menu_labels_position="left">
 
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="@dimen/d_40"
-                    android:layout_height="@dimen/d_40"
-                    android:src="@drawable/ic_search"
-                    android:tint="@color/raisin_black_50" />
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/fabESign"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/d_16"
+                android:src="@drawable/ic_edit"
+                app:fab_colorNormal="@color/white"
+                app:fab_colorPressed="@color/paleGrey"
+                app:fab_colorRipple="@color/white_ripple"
+                app:fab_label="@string/new_e_sign" />
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d_10"
-                    android:fontFamily="@font/manrope_bold"
-                    android:text="@string/feed_is_empty"
-                    android:textColor="@color/raisin_black"
-                    android:textSize="@dimen/s_16" />
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/fabDocs"
+                style="@style/Text16W"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/d_16"
+                android:src="@drawable/ic_docs"
+                app:fab_colorNormal="@color/white"
+                app:fab_colorPressed="@color/paleGrey"
+                app:fab_colorRipple="@color/white_ripple"
+                app:fab_label="@string/new_docs" />
 
-            </LinearLayout>
-        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-    </RelativeLayout>
+        </com.github.clans.fab.FloatingActionMenu>
+    </FrameLayout>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

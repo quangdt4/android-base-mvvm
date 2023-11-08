@@ -1,7 +1,6 @@
 package com.example.one.ui.main
 
 import android.os.Bundle
-import android.os.Handler
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.one.R
@@ -42,8 +41,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         initFragNav(savedInstanceState)
     }
 
-    override fun setUp() {
-    }
+    override fun setUp() {}
 
     private fun initFragNav(savedInstanceState: Bundle?) {
         fragNavController = FragNavController(supportFragmentManager, R.id.navHostContainer)
@@ -65,18 +63,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
         fragNavController?.initialize(FragNavController.TAB1, savedInstanceState)
 
-        binding?.bottomNav?.setOnNavigationItemSelectedListener {
+        binding?.bottomNav?.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.tabFeed -> {
                     updateViewBottomBar(View.VISIBLE)
-                    if (fragNavController?.currentFrag is HomeFragment) {
-                        Handler().postDelayed(
-                            {
-                                (fragNavController?.currentFrag as HomeFragment).onRefresh()
-                            },
-                            500
-                        )
-                    }
                     fragNavController?.switchTab(
                         TAB_1,
                         FragNavTransactionOptions.newBuilder().build()
